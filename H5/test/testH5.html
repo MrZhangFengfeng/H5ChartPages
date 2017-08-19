@@ -1,0 +1,72 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>testH5</title>
+    <link rel="stylesheet" type="text/css" href="../css/testH5.css">
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+
+    <script type="text/javascript" src='../js/testH5.js'></script>
+    <script type="text/javascript" src='../js/H5ComponentBase.js'></script>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jquery-fullPage/2.7.4/jquery.fullPage.js'></script>
+</head>
+<body>
+     <!-- 测试内容组织功能以及fullpage的页面切换和组件切换 -->
+     <script type="text/javascript">
+     	var h5 = new H5();
+     	h5
+     	.addPage('header')
+     		.addComponent('logo',{
+     			text:'ali',
+     			width:400,
+     			height:200,
+     			css:{
+     				backgroundColor:'green',
+     				width:200,
+   					height:100,
+     				top:50,
+     				opacity:0
+     			},
+     			animateIn:{opacity:1},
+     			animateOut:{opacity:0},
+     			center:true
+     		})
+     	.addPage('body')
+     		.addComponent('caption',{
+     			text:'eBao',
+     			width:400,
+     			height:200,
+     			css:{
+     				backgroundColor:'red',
+     				width:200,
+   					height:100,
+     				top:100,
+     				opacity:0
+     			},
+     			animateIn:{opacity:1},
+     			animateOut:{opacity:0},
+     			center:true
+     		})
+     	.addPage('footer')
+     		.addComponent('bar',{
+     			text:'携程',
+     			width:400,
+     			height:200,
+     			css:{
+     				backgroundColor:'yellow',
+     				width:200,
+   					height:100,
+     				top:75,
+     				opacity:0
+     			},
+     			animateIn:{opacity:1},
+     			animateOut:{opacity:0},
+     			center:true
+     		})
+     	.loader()
+     </script>
+</body>
+</html>

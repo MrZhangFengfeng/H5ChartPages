@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>testH5</title>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentPie.css">
+
+
+    <script type="text/javascript" src='../js/H5ComponentBase.js'></script>
+    <script type="text/javascript" src='../js/H5ComponentPie.js'></script>
+
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jquery-fullPage/2.7.4/jquery.fullPage.js'></script>
+</head>
+<body>
+  	<div class="iphone">
+  		
+  	</div>
+  	<script type="text/javascript">
+  		let cfg={
+  			type:'pie',
+  			width:400,
+  			height:400,
+  			data:[
+  				['javascript',.2,'green'],
+  				['HTML',.2,'red'],
+  				['CSS',.3,'yellow'],
+  				['bootstrap',.1,'pink'],
+  				['Vue',.05,'#ccc'],
+  				['React',.02,'black'],
+  				['AngularJS',.1,'orange'],
+  				['JQuery',.03,'blue']
+  			],
+  			css:{  				
+	  			top:100,
+	  			left:20,
+	  			width:200
+  			},
+  			order:true,
+  			animateIn:{
+  				opacity : 1
+  			},
+  			animateOut:{
+  				opacity : 0
+  			},
+  			center : true
+  		}
+  		
+  		let h5 = new H5ComponentPie('pie',cfg);
+  		$('.iphone').append(h5);
+
+  		var isLeave =true;
+  		$('body').on('click',function(){
+  			isLeave = !isLeave;
+  			$('.h5_component').trigger(isLeave? 'onLeave':'afterLoad');
+  		})
+  	</script>
+</body>
+</html>

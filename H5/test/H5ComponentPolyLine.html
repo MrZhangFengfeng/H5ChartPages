@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>testH5</title>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentPolyLine.css">
+
+    <script type="text/javascript" src='../js/H5ComponentBase.js'></script>
+    <script type="text/javascript" src='../js/H5ComponentPolyLine.js'></script>
+
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jquery-fullPage/2.7.4/jquery.fullPage.js'></script>
+</head>
+<body>
+  	<div class="iphone">
+  		
+  	</div>
+  	<script type="text/javascript">
+  		let cfg={
+  			type:'polyLine',
+  			width:530,
+  			height:400,
+  			stepY:10,
+  			data:[
+  				['javascript',.76,'green'],
+  				['HTML',.9,'red'],
+  				['CSS',.85,'yellow'],
+  				['bootstrap',.6,'pink'],
+  				['Vue',.2,'#ccc'],
+  				['React',.5,'black'],
+  				['AngularJS',.3,'black'],
+  				['JQuery',.62,'red']
+  			],
+  			css:{  				
+	  			top:100,
+	  			left:20,
+	  			opacity:0
+  			},
+  			animateIn:{
+  				opacity : 1
+  			},
+  			animateOut:{
+  				opacity : 0
+  			},
+  			center : false
+  		}
+  		
+  		let h5 = new H5ComponentPolyLine('polyLine',cfg);
+  		$('.iphone').append(h5);
+
+  		var isLeave =true;
+  		$('body').on('click',function(){
+  			isLeave = !isLeave;
+  			$('.h5_component').trigger(isLeave? 'onLeave':'afterLoad');
+  		})
+  	</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H5Pages</title>
+
+    <!-- 载入所有资源文件 -->
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jquery-fullPage/2.7.4/jquery.fullPage.js'></script>
+
+    <!-- 载入所有H5组件资源 -->
+    <script type="text/javascript">
+    	var res = ['Base','Bar','Point','PolyLine','Pie','Radar'];
+    	var html=[];
+    	for(i in res){
+    		html.push('<script src="js/H5Component'+res[i]+'.js"><\/script>');
+    		html.push('<link rel="stylesheet" type="text/css" href="css/H5Component'+res[i]+'.css">');
+    	}
+    	document.write(html.join(''));
+    </script>
+
+    <!-- 载入H5对象，进行内容管理 -->
+    <link rel="stylesheet" type="text/css" href="css/testH5.css">
+    <script type="text/javascript" src='js/testH5.js'></script>
+
+    <!-- 页面逻辑的样式 -->
+    <style type="text/css">
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
+    </style>
+
+    <!-- 主要逻辑 -->
+    <script type="text/javascript">
+    	$(function(){
+    		var h5 = new H5();
+     	h5
+     	.addPage('header')
+     		.addComponent('logo',{
+     			text:'ali',
+     			width:400,
+     			height:200,
+     			css:{
+     				backgroundColor:'green',
+     				width:200,
+   					height:100,
+     				top:50,
+     				opacity:0
+     			},
+     			animateIn:{opacity:1},
+     			animateOut:{opacity:0},
+     			center:true
+     		})
+     	.addPage('body')
+     		.addComponent('caption',{
+     			text:'eBao',
+     			width:400,
+     			height:200,
+     			css:{
+     				backgroundColor:'red',
+     				width:200,
+   					height:100,
+     				top:100,
+     				opacity:0
+     			},
+     			animateIn:{opacity:1},
+     			animateOut:{opacity:0},
+     			center:true
+     		})
+     	.addPage('footer')
+     		.addComponent('bar',{
+     			text:'携程',
+     			width:400,
+     			height:200,
+     			css:{
+     				backgroundColor:'yellow',
+     				width:200,
+   					height:100,
+     				top:75,
+     				opacity:0
+     			},
+     			animateIn:{opacity:1},
+     			animateOut:{opacity:0},
+     			center:true
+     		})
+     	.loader()
+    	});
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

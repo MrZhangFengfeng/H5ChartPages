@@ -1,0 +1,23 @@
+/*
+* 基本图文组件类样式
+*/
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ccc;
+    font-size: 12px;
+}
+.iphone{
+    width: 340px;
+    height: 540px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin:-270px 0 0 -170px;
+}
+.h5_component{
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+}

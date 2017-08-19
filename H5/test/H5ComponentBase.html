@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H5ComponentBaseTest</title>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script type="text/javascript" src='../js/H5ComponentBase.js'></script>
+</head>
+<body>
+  	<div class="iphone">
+  		
+  	</div>
+  	<script type="text/javascript">
+  		let cfg={
+  			type:'base',
+  			text:'winter',
+  			bg:'../imgs/react.png',
+  			css:{  				
+	  			width : 200,
+	  			height : 100,
+  				opacity : 0
+  			},
+  			animateIn:{
+  				top : 50,
+  				opacity : 1
+  			},
+  			animateOut:{
+  				top : 150,
+  				opacity : 0
+  			},
+  			center : true
+  		}
+  		
+  		let h5 = new H5ComponentBase('winter',cfg);
+  		$('.iphone').append(h5);
+
+  		var isLeave =true;
+  		$('body').on('click',function(){
+  			isLeave = !isLeave;
+  			$('.h5_component').trigger(isLeave? 'onLeave':'afterLoad');
+  		})
+  	</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>testH5</title>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentPoint.css">
+
+
+    <script type="text/javascript" src='../js/H5ComponentBase.js'></script>
+    <script type="text/javascript" src='../js/H5ComponentPoint.js'></script>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js'></script>
+    <script src='http://apps.bdimg.com/libs/jquery-fullPage/2.7.4/jquery.fullPage.js'></script>
+</head>
+<body>
+  	<div class="iphone">
+  		
+  	</div>
+  	<script type="text/javascript">
+  		let cfg={
+  			type:'point',
+  			data:[
+  				['A项',.4,'green'],
+  				['B项',.2,'red','-50%','-80%'],
+  				['C项',.2,'yellow','50%','120%']
+  			],
+  			css:{  				
+	  			width : 100,
+	  			height : 100,
+  				opacity : 0
+  			},
+  			animateIn:{
+  				top : '40%',
+  				opacity : 1
+  			},
+  			animateOut:{
+  				top : 150,
+  				opacity : 0
+  			},
+  			center : true
+  		}
+  		
+  		let h5 = new H5ComponentPoint('point',cfg);
+  		$('.iphone').append(h5);
+
+  		var isLeave =true;
+  		$('body').on('click',function(){
+  			isLeave = !isLeave;
+  			$('.h5_component').trigger(isLeave? 'onLeave':'afterLoad');
+  		})
+  	</script>
+</body>
+</html>
