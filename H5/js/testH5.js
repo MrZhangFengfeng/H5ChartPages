@@ -18,6 +18,9 @@ var H5 = function(){
 		}
 		this.el.append(page);
 		this.page.push(page);
+		if(typeof this.whenAddPage === 'function'){
+			this.whenAddPage();
+		}
 		return this;
 	}
 
@@ -42,7 +45,7 @@ var H5 = function(){
 	}
 
 	// H5对象初始化呈现
-	this.loader=function(){
+	this.loader=function(firstPage){
 		this.el.fullpage({
 			onLeave:function(index,nextIndex,direction){
                 $(this).find('.h5_component').trigger('onLeave');
@@ -54,6 +57,9 @@ var H5 = function(){
 		//首页触发load事件
 		this.page[0].find('.h5_component').trigger('afterLoad');
 		this.el.show();
+		if(firstPage){
+			$.fn.fullpage.moveTo(firstPage);
+		}
 	}
 
 	return this;

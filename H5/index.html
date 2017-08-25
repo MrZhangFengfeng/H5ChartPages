@@ -31,62 +31,176 @@
     		margin: 0;
     		padding: 0;
     	}
+    	.h5_page{
+    		background-image: url(imgs/content_bg.jpg);
+    	}
+    	.h5_page_face{
+    		background-image: url(imgs/face_bg.jpg);
+    	}
+    	.h5_component_name_slogan {
+    		-webkit-animation:rock 2s infinite 2s;
+    	}
+    	@-webkit-keyframes rock{
+    		0%{ transform: rotate(0deg); }
+    		20%{ transform: rotate(3deg); }
+    		40%{ transform: rotate(-4deg); }
+    		50%{ transform: rotate(3deg); }
+    		60%{ transform: rotate(-2deg); }
+    		80%{ transform: rotate(1deg); }
+    		100%{ transform: rotate(0deg); }
+    	}
+    	.h5_page_caption{
+    		background-image: url(imgs/content_bg.jpg);
+ 			width:283;
+ 			height:60;
+ 			text-align: center;
+ 			font-size: 16px;
+ 			color: red;
+    	}
     </style>
 
     <!-- 主要逻辑 -->
     <script type="text/javascript">
     	$(function(){
     		var h5 = new H5();
+    		h5.whenAddPage = function(){
+    			this.addComponent('slide_up',{
+    				bg:'imgs/slide_up.png',
+    				css:{
+    					bottom:0,
+    					left:0,
+    					width:'100%',
+    					height:'20px',
+    					zIndex:999,
+    					backgroundColor:'black'
+    				},
+    				animateIn:{opacity:1},
+     				animateOut:{opacity:0},
+     				delay:2000
+    			})
+    		}
      	h5
-     	.addPage('header')
+     	.addPage('face')
      		.addComponent('logo',{
-     			text:'ali',
-     			width:400,
-     			height:200,
+     			center:true,
      			css:{
-     				backgroundColor:'green',
-     				width:200,
-   					height:100,
-     				top:50,
-     				opacity:0
+     				width:395,
+     				height:130,
+     				opacity:0,
      			},
-     			animateIn:{opacity:1},
-     			animateOut:{opacity:0},
-     			center:true
+     			animateIn:{top:50,opacity:1},
+     			animateOut:{top:0,opacity:0},
+     			width:395,
+     			height:130,
+     			bg:'imgs/logo.png'
      		})
-     	.addPage('body')
+     		.addComponent('slogan',{
+     			width:365,
+     			height:99,
+     			bg:'imgs/react.png',
+     			css:{
+     				top:180,
+     				opacity:0,
+     				left:0
+     			},
+     			animateIn:{left:'20%',opacity:1},
+     			animateOut:{left:'0%',opacity:0},
+     			center:true,
+     			delay:500
+     		})
+     		.addComponent('face_img',{
+     			width:370,
+     			height:100,
+     			bg:'imgs/face_img.png',
+     			css:{
+     				top:300,
+     				opacity:0,
+     				left:-50,
+     				bottom:-50
+     			},
+     			animateIn:{left:20,bottom:0,opacity:1},
+     			animateOut:{left:-50,bottom:-50,opacity:0},
+     			center:true,
+     			delay:1000
+     		})
+     	.addPage()
      		.addComponent('caption',{
-     			text:'eBao',
-     			width:400,
-     			height:200,
-     			css:{
-     				backgroundColor:'red',
-     				width:200,
-   					height:100,
-     				top:100,
-     				opacity:0
-     			},
-     			animateIn:{opacity:1},
-     			animateOut:{opacity:0},
-     			center:true
+     			text:'核心理念',
      		})
-     	.addPage('footer')
-     		.addComponent('bar',{
-     			text:'携程',
+     		.addComponent('text',{
+     			width:500,
+     			height:30,
+     			center:true,
+     			text:'要做就做最好的！',
+     			bg:'imgs/description_bg.png',
+     			css:{
+     				opacity:0,
+     				width:'500',
+     				textAlign:'center',
+     				color:'red',
+     				fontSize:'26px'
+     			},
+     			animateIn:{opacity:1,top:160},
+     			animateOut:{opacity:0,top:240}
+     		})
+     		.addComponent('description',{
+     			text:'哈哈哈哈哈哈哈哈哈哈你好',
+     			center:true,
+     			width:480,
+     			height:250,
+     			css:{
+     				width:100,
+     				opacity:0,
+     				fontSize:'20px',
+     				textAlign:'center',
+     				lineHeight:'20px'    				
+     			},
+     			animateIn:{opacity:1,top:360},
+     			animateOut:{opacity:0,top:840},
+     			delay:500
+     		})
+ 		.addPage()
+     		.addComponent('caption',{
+     			text:'核心理念',
+     		})
+     	.addPage('tail')
+     		.addComponent('logo',{
+     			text:'over',
      			width:400,
      			height:200,
      			css:{
      				backgroundColor:'yellow',
      				width:200,
    					height:100,
-     				top:75,
+     				top:250,
      				opacity:0
      			},
      			animateIn:{opacity:1},
      			animateOut:{opacity:0},
-     			center:true
+     			center:true,
+     			onclick:function(){
+     				alert("winter")
+     			}
      		})
-     	.loader()
+     		.addComponent('back',{
+     			text:'back',
+     			width:200,
+     			height:50,
+     			css:{
+     				backgroundColor:'grey',
+     				width:200,
+   					height:100,
+     				top:15,
+     				opacity:0
+     			},
+     			animateIn:{opacity:1},
+     			animateOut:{opacity:0},
+     			center:true,
+     			onclick:function(){
+     				$.fn.fullpage.moveTo(1);
+     			}
+     		})
+     	.loader(2)
     	});
     </script>
 </head>

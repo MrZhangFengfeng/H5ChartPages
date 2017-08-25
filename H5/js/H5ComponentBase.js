@@ -19,9 +19,16 @@ var H5ComponentBase = function(name,cfg){
 			left:'50%'
 		});
 	}
+	//定义自定义参数
+	if(typeof cfg.onclick === 'function'){
+		component.on('click',cfg.onclick)
+	}
 	component.on('afterLoad',function(){
-        component.addClass(cls+'_load').removeClass(cls+'_leave');
-        cfg.animateIn && component.animate(cfg.animateIn);
+		setTimeout(function(){
+			component.addClass(cls+'_load').removeClass(cls+'_leave');
+        	cfg.animateIn && component.animate(cfg.animateIn);
+		},cfg.delay || 0);
+        
         return false;
     });
     component.on('onLeave',function(){
